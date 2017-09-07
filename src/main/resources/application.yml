@@ -1,5 +1,5 @@
 elasticsearch:
-  clustername: elasticsearch
+  clustername: yanggy
   host: localhost
   port: 9300
 
