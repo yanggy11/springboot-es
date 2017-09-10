@@ -1,10 +1,7 @@
 package com.yanggy.es.controller;
 
 import org.elasticsearch.action.get.GetResponse;
-import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +19,8 @@ public class TestController {
     private TransportClient client;
     @RequestMapping(value = "test", method = RequestMethod.POST)
     public Object test() {
-        return client.prepareGet("posts","post","1").execute().actionGet();
+        GetResponse getResponse = client.prepareGet("posts","post","1").execute().actionGet();
+
+        return getResponse;
     }
 }
